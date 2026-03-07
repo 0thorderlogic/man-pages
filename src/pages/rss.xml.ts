@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import { name } from '../../consts';
+import { name, url } from '../../consts';
 import type { APIContext } from 'astro';
 
 export async function GET(context: APIContext) {
@@ -13,7 +13,7 @@ export async function GET(context: APIContext) {
   return rss({
     title: `${name}'s Journal`,
     description: 'A collection of thoughts and writings.',
-    site: context.site || 'https://example.com',
+    site: url,
     items: sortedEntries.map((post) => ({
       title: post.data.title,
       pubDate: post.data.date,
