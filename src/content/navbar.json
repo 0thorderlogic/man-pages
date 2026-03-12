@@ -15,6 +15,10 @@
     {
       "name": "Archive",
       "href": "/archive"
+    },
+    {
+      "name": "Goto",
+      "href": "/r"
     }
   ]
 }
