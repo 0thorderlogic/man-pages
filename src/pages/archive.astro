@@ -28,31 +28,52 @@ const sortedYears = Object.entries(groupedByYear).sort(
 ---
 
 <Layout title="Archive">
-  <div class="max-w-4xl space-y-10">
+  <div class="max-w-4xl space-y-4">
     {
       sortedYears.map(([year, items]) => (
-        <div class="space-y-6">
-          <h2 class="title-2 text-5xl md:text-6xl text-gruv-yellow m-0">
-            {year}
-          </h2>
-          <div class="space-y-6 pl-2 md:pl-4 border-l-2 border-gruv-gray/20">
+        <details class="group">
+          <summary class="flex items-center gap-4 cursor-pointer list-none select-none py-2">
+            <h2 class="title-2 text-4xl md:text-5xl text-gruv-yellow m-0">
+              {year}
+            </h2>
+            <div class="flex-grow h-px bg-gruv-gray/20 group-hover:bg-gruv-gray/40 transition-colors" />
+            <div class="text-gruv-gray/50 group-open:rotate-180 transition-transform duration-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </summary>
+          <div class="space-y-4 pt-4 pb-6 pl-4 sm:pl-8 border-l-2 border-gruv-gray/20 ml-2 sm:ml-4 mt-2">
             {items.map((item) => (
-              <div class="p-4 border border-gruv-gray/20 rounded bg-gruv-bg0-s flex flex-col gap-2 relative">
-                <div class="absolute -left-[11px] md:-left-[19px] top-6 w-5 h-0.5 bg-gruv-gray/20 hidden sm:block" />
-                <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
-                  <h3 class="text-xl font-bold text-gruv-fg m-0">
+              <div class="p-3 sm:p-4 border border-gruv-gray/20 rounded bg-gruv-bg0-s relative hover:border-gruv-gray/40 transition-colors shadow-sm group/card">
+                <div class="absolute -left-[18px] sm:-left-[34px] top-[26px] w-[18px] sm:w-[34px] h-[2px] bg-gruv-gray/20 hidden sm:block group-hover/card:bg-gruv-gray/40 transition-colors" />
+
+                <div class="flex justify-between items-start gap-4 mb-2">
+                  <h3 class="text-lg font-bold text-gruv-fg m-0 leading-tight">
                     {item.title}
                   </h3>
-                  <span class="text-sm font-mono text-gruv-gray whitespace-nowrap">
+                  <span class="text-xs sm:text-sm font-mono text-gruv-gray whitespace-nowrap shrink-0 mt-0.5">
                     {item.date}
                   </span>
                 </div>
-                <p class="text-gruv-fg/80">{item.description}</p>
-                <div class="flex justify-end mt-2">
+
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                  <p class="text-sm text-gruv-fg/80 m-0 leading-relaxed sm:max-w-[75%]">
+                    {item.description}
+                  </p>
                   <a
                     href={item.url}
                     target="_blank"
-                    class="inline-flex items-center gap-1.5 px-4 py-2 bg-gruv-blue/10 text-gruv-blue rounded hover:bg-gruv-blue/20 transition-colors text-sm font-mono"
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gruv-blue/10 text-gruv-blue rounded hover:bg-gruv-blue/20 transition-colors text-xs sm:text-sm font-mono shrink-0 whitespace-nowrap"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +81,7 @@ const sortedYears = Object.entries(groupedByYear).sort(
                       viewBox="0 0 24 24"
                       stroke-width="2"
                       stroke="currentColor"
-                      class="size-4"
+                      class="size-3.5 sm:size-4"
                     >
                       <path
                         stroke-linecap="round"
@@ -74,7 +95,7 @@ const sortedYears = Object.entries(groupedByYear).sort(
               </div>
             ))}
           </div>
-        </div>
+        </details>
       ))
     }
   </div>

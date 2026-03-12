@@ -51,19 +51,39 @@ const sortedYears = Object.entries(groupedByYear).sort(
       </a>
     </div>
 
-    <div class="space-y-10">
+    <div class="space-y-4">
       {
         sortedYears.map(([year, posts]) => (
-          <div class="space-y-6">
-            <h2 class="title-2 text-5xl md:text-6xl text-gruv-yellow m-0">
-              {year}
-            </h2>
-            <div class="space-y-4 pl-2 md:pl-4 border-l-2 border-gruv-gray/20">
+          <details class="group" open>
+            <summary class="flex items-center gap-4 cursor-pointer list-none select-none py-2">
+              <h2 class="title-2 text-4xl md:text-5xl text-gruv-yellow m-0">
+                {year}
+              </h2>
+              <div class="flex-grow h-px bg-gruv-gray/20 group-hover:bg-gruv-gray/40 transition-colors" />
+              <div class="text-gruv-gray/50 group-open:rotate-180 transition-transform duration-200">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </summary>
+
+            <div class="space-y-4 pt-4 pb-6 pl-4 sm:pl-8 border-l-2 border-gruv-gray/20 ml-2 sm:ml-4 mt-2">
               {posts.map((post) => (
-                <article class="grid grid-cols-[max-content_1fr] gap-4 items-baseline">
+                <article class="p-3 sm:p-4 border border-gruv-gray/20 rounded bg-gruv-bg0-s relative hover:border-gruv-gray/40 transition-colors shadow-sm group/card grid grid-cols-1 sm:grid-cols-[160px_1fr] sm:items-baseline gap-2 sm:gap-4">
+                  <div class="absolute -left-[18px] sm:-left-[34px] top-[26px] w-[18px] sm:w-[34px] h-[2px] bg-gruv-gray/20 hidden sm:block group-hover/card:bg-gruv-gray/40 transition-colors" />
+
                   <time
                     datetime={post.data.date.toISOString()}
-                    class="text-sm text-gruv-gray font-mono"
+                    class="text-xs sm:text-sm text-gruv-gray font-mono shrink-0"
                   >
                     {post.data.date.toLocaleDateString("en-US", {
                       year: "numeric",
@@ -71,13 +91,19 @@ const sortedYears = Object.entries(groupedByYear).sort(
                       day: "numeric",
                     })}
                   </time>
-                  <a href={`/journal/${post.slug}`} class="no-underline!">
-                    <h3 class="title-2 font-sans! m-0">{post.data.title}</h3>
+                  <a
+                    href={`/journal/${post.slug}`}
+                    class="no-underline! text-gruv-fg hover:text-gruv-blue transition-colors"
+                  >
+                    <h3 class="text-lg font-bold font-sans! m-0 leading-tight group-hover/card:text-gruv-blue transition-colors">
+                      {post.data.title}
+                    </h3>
+                    <p class="text-gruv-fg">{post.data.description}</p>
                   </a>
                 </article>
               ))}
             </div>
-          </div>
+          </details>
         ))
       }
     </div>
