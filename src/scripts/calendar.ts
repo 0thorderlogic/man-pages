@@ -99,21 +99,16 @@ function createTextElement(
 
 function createEventCard(event: CalendarEvent): HTMLElement {
   const card = document.createElement("div");
-  card.className =
-    "flex flex-col p-4 rounded bg-gruv-bg border border-gruv-gray/20 shadow-sm";
+  card.className = "flex flex-col p-4 rounded bg-gruv-bg border border-gruv-gray/20 shadow-sm";
 
-  card.appendChild(
-    createTextElement("div", "font-bold text-gruv-fg mb-1 text-lg", event.title),
-  );
+  card.appendChild(createTextElement("div", "font-bold text-gruv-fg mb-1 text-lg", event.title));
 
   const timeText = event.isAllDay
     ? "All Day"
     : event.end
       ? `${formatTimeFromIso(event.start)} - ${formatTimeFromIso(event.end)}`
       : formatTimeFromIso(event.start);
-  card.appendChild(
-    createTextElement("div", "text-sm text-gruv-green font-bold mb-2", timeText),
-  );
+  card.appendChild(createTextElement("div", "text-sm text-gruv-green font-bold mb-2", timeText));
 
   if (event.location) {
     const location = document.createElement("div");
@@ -131,8 +126,7 @@ function createEventCard(event: CalendarEvent): HTMLElement {
     meetLink.href = event.hangoutLink;
     meetLink.target = "_blank";
     meetLink.rel = "noopener noreferrer";
-    meetLink.className =
-      "text-sm text-gruv-aqua flex items-center gap-1.5 hover:underline w-fit";
+    meetLink.className = "text-sm text-gruv-aqua flex items-center gap-1.5 hover:underline w-fit";
 
     meetLink.appendChild(createTextElement("span", "opacity-80", "🎥"));
     meetLink.appendChild(document.createTextNode("Join Google Meet"));
@@ -144,9 +138,7 @@ function createEventCard(event: CalendarEvent): HTMLElement {
     const attendees = document.createElement("div");
     attendees.className = "text-xs text-gruv-gray mt-2 flex items-center gap-1.5";
     attendees.appendChild(createTextElement("span", "opacity-80", "👥"));
-    attendees.appendChild(
-      document.createTextNode(`${event.attendeesCount} attendee(s)`),
-    );
+    attendees.appendChild(document.createTextNode(`${event.attendeesCount} attendee(s)`));
     card.appendChild(attendees);
   }
 
@@ -161,8 +153,7 @@ function createEventCard(event: CalendarEvent): HTMLElement {
   }
 
   const linkContainer = document.createElement("div");
-  linkContainer.className =
-    "mt-4 pt-3 border-t border-gruv-gray/20 flex justify-end";
+  linkContainer.className = "mt-4 pt-3 border-t border-gruv-gray/20 flex justify-end";
 
   const viewLink = document.createElement("a");
   viewLink.href = event.link;
@@ -178,11 +169,7 @@ function createEventCard(event: CalendarEvent): HTMLElement {
   return card;
 }
 
-function renderDayModal(
-  day: Date,
-  events: CalendarEvent[],
-  refs: CalendarDomRefs,
-): void {
+function renderDayModal(day: Date, events: CalendarEvent[], refs: CalendarDomRefs): void {
   refs.modalTitle.textContent = formatReadableDay(day);
   refs.modalEvents.innerHTML = "";
 
@@ -226,9 +213,7 @@ function createDayCell(
   const isToday = isSameDay(day, new Date());
 
   dayElement.className = `min-h-[80px] md:min-h-[100px] p-1 md:p-2 border rounded flex flex-col transition-colors cursor-pointer ${
-    inCurrentMonth
-      ? "bg-gruv-bg border-gruv-bg0-s"
-      : "bg-transparent border-gruv-bg opacity-40"
+    inCurrentMonth ? "bg-gruv-bg border-gruv-bg0-s" : "bg-transparent border-gruv-bg opacity-40"
   } ${isToday ? "border-gruv-yellow bg-gruv-bg0-s/50" : ""} hover:border-gruv-gray hover:bg-gruv-bg0-s`;
 
   const dateNumber = document.createElement("div");
@@ -239,8 +224,7 @@ function createDayCell(
   dayElement.appendChild(dateNumber);
 
   const eventsContainer = document.createElement("div");
-  eventsContainer.className =
-    "flex-1 overflow-y-auto mt-1 flex flex-col gap-1 hide-scrollbar";
+  eventsContainer.className = "flex-1 overflow-y-auto mt-1 flex flex-col gap-1 hide-scrollbar";
 
   dayEvents.forEach((event) => {
     const chip = document.createElement("div");

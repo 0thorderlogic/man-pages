@@ -8,7 +8,7 @@ Welcome to your new minimal personal website! This template is designed to be ex
 
 ## Customizing Your Information
 
-To make this site your own, start by opening `consts.ts` at the root of the project. Here you can edit your name, last name, and the site's default title and description. 
+To make this site your own, start by opening `consts.ts` at the root of the project. Here you can edit your name, last name, and the site's default title and description.
 
 You'll also want to edit the `src/content/navbar.json` file if you want to add, remove, or rename any navigation links.
 
@@ -26,10 +26,12 @@ Astro Collections will automatically pull the file in, render it dynamically, pa
 ## The Google Calendar Integration
 
 To get the `/calendar` page working:
+
 1. Copy `.env.example` to `.env`.
-2. Open `.env` and configure your keys. 
+2. Open `.env` and configure your keys.
 
 **How to get a Google API Key:**
+
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
 2. Create a new project or select an existing one.
 3. Search for "Google Calendar API" and click **Enable**.
@@ -38,6 +40,7 @@ To get the `/calendar` page working:
 6. Paste this key into `GOOGLE_API_KEY` in your `.env` file.
 
 **How to get your Calendar ID:**
+
 1. Go to [Google Calendar](https://calendar.google.com/) on your computer.
 2. Under "My calendars" on the left, hover over the calendar you want to share, click the three vertical dots (Options), and click **Settings and sharing**.
 3. Under the "Access permissions for events" section, ensure **Make available to public** is checked.

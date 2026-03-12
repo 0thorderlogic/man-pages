@@ -1,0 +1,41 @@
+---
+import { metaDescription, name, url } from "../../../consts";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  ogType?: "website" | "article";
+}
+
+const {
+  title,
+  description = metaDescription,
+  image = "/images/linkpreview.png",
+  ogType = "website",
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString() ?? url;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const previewImageUrl = new URL(image, siteUrl).toString();
+---
+
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={`${name}'s Website`} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={previewImageUrl} />
+<meta property="og:image:alt" content={title} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={previewImageUrl} />
+<title>{title}</title>

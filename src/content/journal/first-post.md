@@ -19,8 +19,9 @@ greet("World");
 ```
 
 ## Features to test:
+
 - Heading hierarchy (H1, H2, H3)
-- Bold text and *italic* text
+- Bold text and _italic_ text
 - Lists (like this one)
 - Code blocks
 - Standard paragraphs

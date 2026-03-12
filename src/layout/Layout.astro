@@ -5,36 +5,17 @@ interface Props {
   description?: string;
 }
 
-import { name, url, defaultDescription } from "../../consts";
+import { name, metaDescription } from "../../consts";
+import MetaHead from "../components/ui/MetaHead.astro";
 import Navbar from "../components/ui/Navbar.astro";
 import Footer from "../components/ui/Footer.astro";
-const { title, description = defaultDescription } = Astro.props;
+const { title, description = metaDescription } = Astro.props;
+const pageTitle = `${name} ${title}`;
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{name}{" "}{title}</title>
-    <meta name="description" content={description} />
-    <meta property="og:title" content={`${name} ${title}`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
-    <meta
-      property="og:image"
-      content={new URL("/images/linkpreview.png", url)}
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${name} ${title}`} />
-    <meta name="twitter:description" content={description} />
-    <meta
-      name="twitter:image"
-      content={new URL("/images/linkpreview.png", url)}
-    />
+    <MetaHead title={pageTitle} description={description} />
   </head>
   <body>
     <div class="mx-auto flex min-h-screen w-full max-w-5xl flex-col px-5">

@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-
   /* 
     Credits to: @morhetz
     https://github.com/morhetz/gruvbox
@@ -37,7 +36,6 @@
   --font-sans: Helvetica, Arial;
   --font-mono: monospace;
 }
-
 
 a {
   /* font-family: 'Courier New', Courier, monospace; */

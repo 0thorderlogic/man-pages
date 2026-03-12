@@ -1,20 +1,20 @@
 [
-    {
-        "title": "Attention Is All You Need",
-        "url": "/pdfs/attention_is_all_you_need.pdf",
-        "description": "The landmark paper introducing the Transformer architecture.",
-        "date": "2017-12-06"
-    },
-    {
-        "title": "Deep Residual Learning for Image Recognition",
-        "url": "/pdfs/resnet.pdf",
-        "description": "The original ResNet paper that allowed training of very deep neural networks.",
-        "date": "2015-12-10"
-    },
-    {
-        "title": "Deep Residual Learning for Image Recognition",
-        "url": "/pdfs/resnet.pdf",
-        "description": "The original ResNet paper that allowed training of very deep neural networks.",
-        "date": "2015-12-10"
-    }
+  {
+    "title": "Attention Is All You Need",
+    "url": "/pdfs/attention_is_all_you_need.pdf",
+    "description": "The landmark paper introducing the Transformer architecture.",
+    "date": "2017-12-06"
+  },
+  {
+    "title": "Deep Residual Learning for Image Recognition",
+    "url": "/pdfs/resnet.pdf",
+    "description": "The original ResNet paper that allowed training of very deep neural networks.",
+    "date": "2015-12-10"
+  },
+  {
+    "title": "Deep Residual Learning for Image Recognition",
+    "url": "/pdfs/resnet.pdf",
+    "description": "The original ResNet paper that allowed training of very deep neural networks.",
+    "date": "2015-12-10"
+  }
 ]
