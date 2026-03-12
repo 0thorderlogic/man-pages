@@ -1,7 +1,9 @@
 {
   "name": "man-pages-theme",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "author": "Aryan Singh",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -15,5 +17,9 @@
     "astro": "^5.17.1",
     "date-fns": "^4.1.0",
     "tailwindcss": "^4.1.18"
-  }
+  },
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/0thorderlogic/man-pages"
+	}
 }
